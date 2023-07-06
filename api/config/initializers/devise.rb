@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '7c66b1b037d2103621e7fcd3cd6fd2fa61b42b109030fcc478077a47e7d765ab6aeaa499c3148ef40860e8da59ea47deb3b2777136eb1220153e9cf7d30fc6a5'
+  # config.secret_key = 'super-secret'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -98,7 +98,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth, :params_auth]
+  config.skip_session_storage = %i[http_auth params_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -127,7 +127,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c646fc2f2ced014c5cde7afb7a456e169f02a7e3a54a9e5f12d3707b1b99221dfc4a35653ca02c5938b616492b7a6aee5b03805883db8994d0f2020aa892fb7e'
+  # config.pepper = 'some-key'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
