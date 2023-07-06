@@ -41,6 +41,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'byebug'
 end
 
 group :development do
@@ -49,3 +50,8 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end
+
+gem 'graphql', '~> 2.0'
+gem 'graphiql-rails'
+
+gem 'sass-rails', '~> 6.0'
