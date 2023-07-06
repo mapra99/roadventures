@@ -44,8 +44,8 @@ module Roadventures
 
     # config.middleware.use config.session_store, config.session_options
 
-    config.session_store :cookie_store, key: '_interslice_session'
-    config.middleware.use ActionDispatch::Cookies
+    config.session_store :cookie_store
     config.middleware.use config.session_store, config.session_options
+    # config.middleware.use ActionDispatch::Cookies
   end
 end

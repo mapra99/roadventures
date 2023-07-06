@@ -1,3 +1,11 @@
 class ApplicationController < ActionController::API
-  respond_to :html, :json
+  include ActionController::MimeResponds
+
+  respond_to :json
+
+  private
+
+  def authenticate_user!
+    return head :unauthorized unless user_signed_in?
+  end
 end
