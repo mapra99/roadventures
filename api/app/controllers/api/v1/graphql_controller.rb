@@ -6,7 +6,7 @@ module Api
       # but you'll have to authenticate your user separately
       # protect_from_forgery with: :null_session
       skip_before_action :authenticate_user!
-    
+
       def execute
         variables = prepare_variables(params[:variables])
         query = params[:query]
@@ -19,12 +19,12 @@ module Api
         render json: result
       rescue StandardError => e
         raise e unless Rails.env.development?
-    
+
         handle_error_in_development(e)
       end
-    
+
       private
-    
+
       # Handle variables in form data, JSON body, or a blank value
       # rubocop:disable Metrics/MethodLength
       def prepare_variables(variables_param)
@@ -46,11 +46,11 @@ module Api
         end
       end
       # rubocop:enable Metrics/MethodLength
-    
+
       def handle_error_in_development(event)
         logger.error event.message
         logger.error event.backtrace.join("\n")
-    
+
         render(
           json: {
             errors: [{ message: event.message, backtrace: event.backtrace }], data: {}
