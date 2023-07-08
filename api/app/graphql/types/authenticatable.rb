@@ -1,6 +1,6 @@
 module Types
   module Authenticatable
-    def authorized?(_object, context)
+    def authorized?(_object, _args, context)
       return true if skip_authorization?
       return true if context[:current_user].present?
 
