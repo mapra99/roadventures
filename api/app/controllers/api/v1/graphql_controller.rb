@@ -13,7 +13,7 @@ module Api
         operation_name = params[:operationName]
         context = {
           # Query context goes here, for example:
-          # current_user: current_user,
+          current_user:
         }
         result = RoadventuresSchema.execute(query, variables:, context:, operation_name:)
         render json: result
