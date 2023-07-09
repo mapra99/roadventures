@@ -56,3 +56,23 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           COVERAGE: true
+
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: |
+          cd mobile
+          npm ci
+
+      - name: Run tests
+        run: |
+          cd mobile
+          npm test
