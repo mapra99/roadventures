@@ -7,11 +7,18 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-                               description: 'An example field added by the generator'
-    def test_field
-      'Hello World!'
+    field :trip, Types::Trip, null: false do
+      argument :id, ID, required: true
+    end
+
+    field :trips, [Types::Trip], null: false
+
+    def trips
+      context[:current_user].trips
+    end
+
+    def trip(id:)
+      context[:current_user].trips.find(id)
     end
   end
 end
