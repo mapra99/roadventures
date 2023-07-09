@@ -5,7 +5,7 @@ import { TextInput } from 'react-native'
 const InputField = styled(TextInput)`
   background: #fff;
   font-family: 'Nunito Sans';
-  font-size: 16px;
+  font-size: 14px;
   padding: 12px 18px;
   width: 100%;
   color: ${COLORS.PRIMARY};

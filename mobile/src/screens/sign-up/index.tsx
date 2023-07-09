@@ -5,6 +5,7 @@ import AuthForm from 'components/auth-form'
 import InputField from 'components/input-field'
 import COLORS from 'constants/colors'
 import { BodyCenteredContent } from 'components/body'
+import LogInBanner from 'components/log-in-banner'
 
 function SignUp() {
   return (
@@ -13,6 +14,8 @@ function SignUp() {
         <Logo />
 
         <AuthForm title="Sign up">
+          <LogInBanner />
+
           <InputField
             autoComplete="email"
             placeholder="Email Address"

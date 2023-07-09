@@ -14,6 +14,10 @@ export const BodyText = styled(BaseText)`
   font-size: 14px;
 `
 
+export const SecondaryText = styled(BodyText)`
+  font-family: 'Nunito Sans Light';
+`
+
 export const HeadingText = styled(BaseText)`
   font-size: 24px;
 `
