@@ -5,12 +5,12 @@ import InputField from 'components/input-field'
 import COLORS from 'constants/colors'
 import { BodyCenteredContent } from 'components/body'
 
-function Login() {
+function SignUp() {
   return (
     <BodyCenteredContent>
       <Logo />
 
-      <AuthForm title="Login">
+      <AuthForm title="Sign up">
         <InputField
           autoComplete="email"
           placeholder="Email Address"
@@ -27,9 +27,17 @@ function Login() {
           editable
         />
 
+        <InputField
+          autoComplete="password"
+          placeholder="Confirm your password"
+          autoCapitalize="none"
+          secureTextEntry
+          editable
+        />
+
         <Button
           onPress={(e) => console.log(e)}
-          title="Sign in"
+          title="Sign up"
           color={COLORS.PRIMARY}
           accessibilityLabel="Learn more about this purple button"
         />
@@ -38,4 +46,4 @@ function Login() {
   )
 }
 
-export default Login
+export default SignUp
