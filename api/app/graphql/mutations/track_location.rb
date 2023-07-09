@@ -22,7 +22,7 @@ module Mutations
       end
     end
 
-    def authorized?(trip:, **args)
+    def authorized?(trip:, **_args)
       return true if trip.user == context[:current_user]
 
       raise GraphQL::ExecutionError, 'You are not the owner of this trip.'
