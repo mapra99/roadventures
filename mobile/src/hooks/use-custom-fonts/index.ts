@@ -4,7 +4,10 @@ import * as SplashScreen from 'expo-splash-screen'
 
 export default function useCustomFonts() {
   const [fontsLoaded] = useFonts({
-    'Nunito Sans': require('../../../assets/fonts/nunito-sans.ttf')
+    'Nunito Sans Light': require('../../../assets/fonts/nunito-sans-light.ttf'),
+    'Nunito Sans': require('../../../assets/fonts/nunito-sans-regular.ttf'),
+    'Nunito Sans Semibold': require('../../../assets/fonts/nunito-sans-semibold.ttf'),
+    'Nunito Sans Bold': require('../../../assets/fonts/nunito-sans-bold.ttf'),
   })
 
   const hideSplash = useCallback(async () => {
