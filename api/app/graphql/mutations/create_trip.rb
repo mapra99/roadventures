@@ -7,7 +7,7 @@ module Mutations
       trip = context[:current_user].trips.build
 
       if trip.save
-        { trip: }
+        { trip:, errors: [] }
       else
         { errors: trip.errors.full_messages }
       end

@@ -6,6 +6,7 @@ module Mutations
     argument :recorded_at, GraphQL::Types::ISO8601DateTime, required: true
 
     field :tracking_location, Types::TrackingLocation, null: true
+    field :errors, [String], null: false
 
     def resolve(trip:, latitude:, longitude:, recorded_at:)
       location = trip.tracking_locations.build(
@@ -15,7 +16,7 @@ module Mutations
       )
 
       if location.save
-        { tracking_location: location }
+        { tracking_location: location, errors: [] }
       else
         { errors: location.errors.full_messages }
       end
