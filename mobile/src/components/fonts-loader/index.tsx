@@ -1,6 +1,6 @@
 import * as SplashScreen from 'expo-splash-screen'
-import { View } from 'react-native'
 import useCustomFonts from 'hooks/use-custom-fonts'
+import { StyledView } from './styled'
 import type { FontsLoaderProps } from './types'
 
 SplashScreen.preventAutoHideAsync()
@@ -11,9 +11,9 @@ function FontsLoader({ children }: FontsLoaderProps) {
   if (!fontsLoaded) return null
 
   return (
-    <View onLayout={hideSplash}>
+    <StyledView onLayout={hideSplash}>
       { children }
-    </View>
+    </StyledView>
   )
 }
 
