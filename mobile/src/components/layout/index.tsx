@@ -3,9 +3,9 @@ import Body from 'components/body'
 
 import type { LayoutProps } from './types'
 
-function Layout({ children, onLayout }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   return (
-    <Body onLayout={onLayout}>
+    <Body>
       { children }
 
       <StatusBar style="auto" />

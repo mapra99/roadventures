@@ -3,5 +3,5 @@ import type { LayoutChangeEvent } from 'react-native'
 
 export interface LayoutProps {
   children: ReactNode;
-  onLayout: (event: LayoutChangeEvent) => void
+  // onLayout: (event: LayoutChangeEvent) => void
 }
