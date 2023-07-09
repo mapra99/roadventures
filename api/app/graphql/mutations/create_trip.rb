@@ -1,10 +1,12 @@
 module Mutations
   class CreateTrip < BaseMutation
+    argument :status, Types::TripStatus, required: false, default_value: 'started'
+
     field :trip, Types::Trip, null: true
     field :errors, [String], null: false
 
-    def resolve
-      trip = context[:current_user].trips.build
+    def resolve(status:)
+      trip = context[:current_user].trips.build(status:)
 
       if trip.save
         { trip:, errors: [] }
