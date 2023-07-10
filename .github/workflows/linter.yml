@@ -37,8 +37,6 @@ jobs:
           npx tsc
 
       - name: eslint
-        uses: reviewdog/action-eslint@v1
-        with:
-          workdir: mobile
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+        run: |
+          cd mobile
+          npx eslint

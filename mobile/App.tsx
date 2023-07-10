@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import FontsLoader from 'components/fonts-loader'
+import Login from 'screens/login'
+import SignUp from 'screens/sign-up'
+import SCREENS from 'constants/screens'
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to sasdastart working on youasdadr app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <FontsLoader>
+        <Stack.Navigator>
+          <Stack.Screen name={SCREENS.STACK.LOGIN} component={Login} />
+          <Stack.Screen name={SCREENS.STACK.SIGNUP} component={SignUp} />
+        </Stack.Navigator>
+      </FontsLoader>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
