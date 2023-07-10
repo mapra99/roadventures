@@ -53,5 +53,8 @@ module.exports = {
     'react': {
       'version': 'detect'
     }
-  }
+  },
+  ignorePatterns: [
+    'src/gql-client/**/*' // auto-generated code from graphql-codegen
+  ]
 }
