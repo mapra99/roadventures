@@ -1,4 +1,5 @@
 import z from 'zod'
+import { User } from '../schemas'
 
 export interface SignUpParams {
   email: string
@@ -18,7 +19,7 @@ export type SignUpErrors = z.infer<typeof SignUpErrorsSchema>
 
 export interface LoginParams {
   email: string;
-  pasword: string;
+  password: string;
 }
 
 export const LoginErrorsSchema = z.object({
@@ -26,3 +27,8 @@ export const LoginErrorsSchema = z.object({
 })
 
 export type LoginErrors = z.infer<typeof LoginErrorsSchema>
+
+export interface LoginResult {
+  accessToken: string;
+  user: User
+}
