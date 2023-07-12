@@ -13,12 +13,18 @@ module Types
 
     field :trips, [Types::Trip], null: false
 
+    field :current_user, Types::User, null: true
+
     def trips
       context[:current_user].trips
     end
 
     def trip(id:)
       context[:current_user].trips.find(id)
+    end
+
+    def current_user
+      context[:current_user]
     end
   end
 end
