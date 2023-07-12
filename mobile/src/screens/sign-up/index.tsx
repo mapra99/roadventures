@@ -6,8 +6,19 @@ import InputField from 'components/input-field'
 import COLORS from 'constants/colors'
 import { BodyCenteredContent } from 'components/body'
 import LogInBanner from 'components/log-in-banner'
+import { signUp } from 'rest-client'
 
 function SignUp() {
+  const handleSignUp = async () => {
+    const [success, result] = await signUp({ email: 'mapra99@gmail.com', password: '123456', password_confirmation: '123456' })
+
+    if (success) {
+      console.log(typeof result)
+    } else {
+      console.log(typeof result)
+    }
+  }
+
   return (
     <Layout>
       <BodyCenteredContent>
@@ -41,7 +52,7 @@ function SignUp() {
           />
 
           <Button
-            onPress={(e) => console.log(e)}
+            onPress={handleSignUp}
             title="Sign up"
             color={COLORS.PRIMARY}
             accessibilityLabel="Learn more about this purple button"

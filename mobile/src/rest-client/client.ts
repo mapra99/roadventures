@@ -1,25 +1,15 @@
-import type { SendRequestOptions } from './types'
+import axios from 'axios'
+import { ROADIFY_API_URL } from 'react-native-dotenv'
 
-function buildHeaders(accessToken?: string, additionalHeaders?: HeadersInit_) {
-  const headers: HeadersInit_ = {
-    'Content-Type': 'application/json',
-    'Authorization': accessToken ? `Bearer ${accessToken}` : undefined,
-    ...additionalHeaders
-  }
+console.log({ ROADIFY_API_URL })
 
-  if (accessToken) {
-    headers['Authorization'] = `Bearer ${accessToken}`
-  }
 
-  return headers
-}
+const client = axios.create({
+  baseURL: ROADIFY_API_URL,
+  timeout: 5000,
+})
 
-async function sendRequest(method: string, path: string, { body, accessToken, headers: additionalHeaders }: SendRequestOptions) {
-  const headers = buildHeaders(accessToken, additionalHeaders)
+client.defaults.headers.common['Content-Type'] = 'application/json'
+client.defaults.headers.common['Accept'] = 'application/json'
 
-  await fetch(path, {
-    method,
-    headers,
-    body
-  })
-}
+export default client
