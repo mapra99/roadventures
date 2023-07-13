@@ -3,7 +3,7 @@ import useCustomFonts from 'hooks/use-custom-fonts'
 import { StyledView } from './styled'
 import type { FontsLoaderProps } from './types'
 
-SplashScreen.preventAutoHideAsync()
+// SplashScreen.preventAutoHideAsync()
 
 
 function FontsLoader({ children }: FontsLoaderProps) {

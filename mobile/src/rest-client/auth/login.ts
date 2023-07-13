@@ -10,12 +10,13 @@ async function login(params: LoginParams): Promise<[true, LoginResult] | [false,
     const { data, headers } = await client.post(LOGIN_ENDPOINT, { user: params })
     const user = UserSchema.parse(data)
 
-    const authHeader = headers['Authorization']
+    console.log({ headers })
+    const authHeader = headers['authorization']
     const accessToken = authHeader.split('Bearer ')[1]
 
     return [true, { accessToken, user }]
   } catch (error) {
-    if (!isAxiosError(error)) throw new Error('Something went really wrong')
+    if (!isAxiosError(error)) throw error
     if (!error.response) throw new Error(error.message)
     if (error.response.status !== 401) throw new Error(`Unhandled status code: ${error.response.status}`)
 

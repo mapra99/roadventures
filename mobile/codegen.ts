@@ -9,10 +9,7 @@ const config: CodegenConfig = {
     'src/gql-client/': {
       preset: 'client',
       plugins: []
-    },
-    // './graphql.schema.json': {
-    //   plugins: ['introspection']
-    // }
+    }
   }
 }
 
