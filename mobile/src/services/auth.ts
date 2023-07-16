@@ -31,7 +31,7 @@ export async function logoutUser() {
   const accessToken = await loadAccessToken()
   invariant(accessToken, 'No access token found')
 
-  await ss.remove(ACCESS_TOKEN_KEY)
+  await removeAccessToken()
   await logout(accessToken)
 }
 
@@ -40,4 +40,8 @@ export async function loadAccessToken() {
   if (success) return token
 
   return undefined
+}
+
+export async function removeAccessToken() {
+  await ss.remove(ACCESS_TOKEN_KEY)
 }

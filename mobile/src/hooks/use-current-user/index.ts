@@ -2,29 +2,41 @@ import { useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { currentUserQuery } from 'queries'
 import useStore from 'store'
-import { loadAccessToken } from 'services/auth'
+import { loadAccessToken, removeAccessToken } from 'services/auth'
 
 function useCurrentUser() {
-  const { loading, data } = useQuery(currentUserQuery)
-  const updateCurrentUser = useStore(store => store.updateCurrentUser)
+  const { loading, data, error } = useQuery(currentUserQuery)
+  const { updateCurrentUser, currentUser } = useStore()
+
+  console.log({ data, error })
 
   const saveCurrentUser = async () => {
-    if (!data) return
-    if (!data.currentUser) return
-
+    if (!data?.currentUser) return
+    if (data.currentUser.id === currentUser?.id) return
 
     const token = await loadAccessToken()
     if (!token) return
 
-    await updateCurrentUser(data.currentUser, token)
+    updateCurrentUser(data.currentUser, token)
+  }
+
+  const removeToken = async () => {
+    if (!data && !error) return
+
+    updateCurrentUser(null, null)
+    await removeAccessToken()
   }
 
   useEffect(() => {
-    saveCurrentUser()
-  }, [data])
+    if (error) {
+      removeToken()
+    } else {
+      saveCurrentUser()
+    }
+  }, [data, error])
 
   return {
-    loading, data
+    loading, data, error
   }
 }
 
