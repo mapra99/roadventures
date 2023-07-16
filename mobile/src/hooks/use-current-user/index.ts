@@ -9,7 +9,6 @@ function useCurrentUser() {
   const updateCurrentUser = useStore(store => store.updateCurrentUser)
 
   const saveCurrentUser = async () => {
-    console.log({ data})
     if (!data) return
     if (!data.currentUser) return
 

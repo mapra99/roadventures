@@ -7,7 +7,6 @@ const config: CodegenConfig = {
   documents: 'src/**/*.ts',
   generates: {
     'src/gql-client/': {
-      preset: 'client',
       plugins: []
     }
   }

@@ -22,18 +22,20 @@ const LoginValidationSchema = Yup.object().shape({
 
 function Login() {
   const updateCurrentUser = useStore(state => state.updateCurrentUser)
+  const currentUser = useStore(state => state.currentUser)
+
   const client = useApolloClient()
+
   const handleSubmit = async (values: LoginInputs) => {
     const [success, result] = await loginUser(values.email, values.password)
     if (!success) throw new Error(result) // TODO: Handle this better
+    if (result.id === currentUser?.id) return
 
     const accessToken = await loadAccessToken()
     invariant(accessToken, 'Access token should be defined')
 
     updateCurrentUser(result, accessToken)
     client.resetStore()
-
-    console.log("YUPI")
   }
 
   return (

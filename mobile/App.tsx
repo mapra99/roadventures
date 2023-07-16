@@ -26,8 +26,6 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-console.log({ ROADIFY_API_URL })
-
 export default function App() {
   return (
     <ApolloProvider client={apolloClient}>

@@ -1,6 +1,6 @@
 module Mutations
   class FinishTrip < BaseMutation
-    argument :trip_id, ID, loads: Types::Trip
+    argument :trip_id, Int, loads: Types::Trip
 
     field :trip, Types::Trip, null: true
     field :errors, [String], null: false

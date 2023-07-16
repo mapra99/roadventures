@@ -10,7 +10,6 @@ async function login(params: LoginParams): Promise<[true, LoginResult] | [false,
     const { data, headers } = await client.post(LOGIN_ENDPOINT, { user: params })
     const user = UserSchema.parse(data)
 
-    console.log({ headers })
     const authHeader = headers['authorization']
     const accessToken = authHeader.split('Bearer ')[1]
 

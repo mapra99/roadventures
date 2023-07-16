@@ -1,6 +1,6 @@
 module Mutations
   class TrackLocation < BaseMutation
-    argument :trip_id, ID, required: true, loads: Types::Trip
+    argument :trip_id, Int, required: true, loads: Types::Trip
     argument :latitude, Float, required: true
     argument :longitude, Float, required: true
     argument :recorded_at, GraphQL::Types::ISO8601DateTime, required: true
