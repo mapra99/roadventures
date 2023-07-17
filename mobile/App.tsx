@@ -11,12 +11,15 @@ const httpLink = createHttpLink({
 })
 
 const authLink = setContext(async (_, { headers }) => {
-  const token = await Auth.loadAccessToken()
+  // const token = await Auth.loadAccessToken()
+  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjg5NTUyOTI1LCJleHAiOjE2ODk1NTY1MjUsImp0aSI6Ijg5ODM1Y2NlLWVhOTAtNDMxYy1hNDMzLWZjNjZiNzdkNDI1MiJ9.n3BX9updirfJ8ZLsfqc-Q8czYm0Ts7EAg04fmBSG0ho"
+
+  console.log({ token })
 
   return {
     headers: {
       ...headers,
-      'authorization': token ? `Bearer ${token}` : '',
+      'Authorization': token ? `Bearer ${token}` : '',
     }
   }
 })

@@ -11,12 +11,6 @@ import { signUp } from 'rest-client'
 function SignUp() {
   const handleSignUp = async () => {
     const [success, result] = await signUp({ email: 'mapra99@gmail.com', password: '123456', password_confirmation: '123456' })
-
-    if (success) {
-      console.log(typeof result)
-    } else {
-      console.log(typeof result)
-    }
   }
 
   return (

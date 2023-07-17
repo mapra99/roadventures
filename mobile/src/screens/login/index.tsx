@@ -32,8 +32,9 @@ function Login() {
     const accessToken = await loadAccessToken()
     invariant(accessToken, 'Access token should be defined')
 
+    console.log({ result, accessToken })
     updateCurrentUser(result, accessToken)
-    client.resetStore()
+    // client.resetStore()
   }
 
   return (

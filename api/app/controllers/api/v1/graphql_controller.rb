@@ -8,6 +8,7 @@ module Api
       skip_before_action :authenticate_user!
 
       def execute
+        byebug
         variables = prepare_variables(params[:variables])
         query = params[:query]
         operation_name = params[:operationName]
