@@ -6,15 +6,15 @@ import MainNavigation from 'navigation/main-navigation'
 import FontsLoader from 'components/fonts-loader'
 import GlobalLoader from 'components/global-loader'
 
+console.log({ ROADIFY_API_URL })
+
+
 const httpLink = createHttpLink({
   uri: `${ROADIFY_API_URL}/graphql`,
 })
 
 const authLink = setContext(async (_, { headers }) => {
-  // const token = await Auth.loadAccessToken()
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjg5NTUyOTI1LCJleHAiOjE2ODk1NTY1MjUsImp0aSI6Ijg5ODM1Y2NlLWVhOTAtNDMxYy1hNDMzLWZjNjZiNzdkNDI1MiJ9.n3BX9updirfJ8ZLsfqc-Q8czYm0Ts7EAg04fmBSG0ho"
-
-  console.log({ token })
+  const token = await Auth.loadAccessToken()
 
   return {
     headers: {

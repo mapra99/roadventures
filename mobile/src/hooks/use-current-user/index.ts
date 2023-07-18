@@ -26,12 +26,9 @@ function useCurrentUser() {
   }
 
   useEffect(() => {
-    console.log({ data, error })
     if (error) {
-      console.log("Error detected. Removing token...")
       removeToken()
     } else {
-      console.log("No error detected. Saving current user...")
       saveCurrentUser()
     }
   }, [data, error])

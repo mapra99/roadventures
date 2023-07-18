@@ -31,3 +31,7 @@ export const SuperTitleText = styled(BaseText)`
   font-size: 48px;
   font-family: 'Nunito Sans Bold';
 ` 
+
+export const ErrorText = styled(SmallText)`
+  color: ${COLORS.DANGER};
+`
