@@ -8,7 +8,6 @@ import GlobalLoader from 'components/global-loader'
 
 console.log({ ROADIFY_API_URL })
 
-
 const httpLink = createHttpLink({
   uri: `${ROADIFY_API_URL}/graphql`,
 })
