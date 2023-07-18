@@ -27,10 +27,11 @@ const LoginValidationSchema = Yup.object().shape({
 
 function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login'>) {
   const [serverError, setServerError] = useState<string | undefined>(undefined)
-  const updateCurrentUser = useStore(state => state.updateCurrentUser)
+  const { updateCurrentUser, addProcess, removeProcess } = useStore()
   const client = useApolloClient()
 
   const handleSubmit = async (values: LoginInputs) => {
+    addProcess('login')
     const [success, result] = await loginUser(values.email, values.password)
     if (!success) {
       setServerError(result)
@@ -43,6 +44,7 @@ function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login
     updateCurrentUser(result, accessToken)
     client.resetStore()
     navigation.navigate('Home')
+    removeProcess('login')
   }
 
   return (

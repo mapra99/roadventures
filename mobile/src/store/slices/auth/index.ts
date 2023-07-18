@@ -6,7 +6,7 @@ import type { AuthSlice } from './types'
 const createAuthSlice: StateCreator<Store, [], [], AuthSlice> = (set) => ({
   accessToken: null,
   currentUser: null,
-  updateCurrentUser: (currentUser: User, accessToken: string) => set({ accessToken, currentUser })
+  updateCurrentUser: (currentUser: User | null, accessToken: string | null) => set({ accessToken, currentUser })
 })
 
 export default createAuthSlice
