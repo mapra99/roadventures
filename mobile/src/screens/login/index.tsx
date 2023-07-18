@@ -35,6 +35,7 @@ function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login
     const [success, result] = await loginUser(values.email, values.password)
     if (!success) {
       setServerError(result)
+      removeProcess('login')
       return
     }
 
@@ -98,7 +99,6 @@ function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login
                 onPress={handleSubmit as any} //eslint-disable-line
                 title="Sign in"
                 color={COLORS.PRIMARY}
-                accessibilityLabel="Learn more about this purple button"
               />
             </AuthForm>
           )}
