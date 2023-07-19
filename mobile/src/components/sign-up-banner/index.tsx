@@ -1,7 +1,6 @@
 import { SecondaryText } from 'components/text'
 import NavigationLink from 'components/navigation-link'
 import { StyledView } from './styled'
-import SCREENS from 'constants/screens'
 
 function SignUpBanner() {
   return (
@@ -10,7 +9,7 @@ function SignUpBanner() {
         Not a user yet?
       </SecondaryText>
 
-      <NavigationLink to={SCREENS.STACK.SIGNUP}>
+      <NavigationLink to="Sign Up">
         <SecondaryText>
           Register Here
         </SecondaryText>

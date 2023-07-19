@@ -1,7 +1,6 @@
 import { SecondaryText } from 'components/text'
 import NavigationLink from 'components/navigation-link'
 import { StyledView } from './styled'
-import SCREENS from 'constants/screens'
 
 function LogInBanner() {
   return (
@@ -10,7 +9,7 @@ function LogInBanner() {
         Already a user?
       </SecondaryText>
 
-      <NavigationLink to={SCREENS.STACK.LOGIN}>
+      <NavigationLink to="Login">
         <SecondaryText>
           Sign in here
         </SecondaryText>

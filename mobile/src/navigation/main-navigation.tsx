@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import Login from 'screens/login'
 import SignUp from 'screens/sign-up'
 import Home from 'screens/home'
-import SCREENS from 'constants/screens'
 import useStore from 'store'
 
 const Stack = createNativeStackNavigator()
@@ -16,12 +15,12 @@ function MainNavigation() {
       <Stack.Navigator>
         { currentUser ? (
           <>
-            <Stack.Screen name={SCREENS.STACK.HOME} component={Home} />
+            <Stack.Screen name="Home" component={Home} />
           </>
         ) : (
           <>
-            <Stack.Screen name={SCREENS.STACK.LOGIN} component={Login} />
-            <Stack.Screen name={SCREENS.STACK.SIGNUP} component={SignUp} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Sign Up" component={SignUp} />
           </>
         )}
       </Stack.Navigator>

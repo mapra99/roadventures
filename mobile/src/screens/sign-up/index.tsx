@@ -16,8 +16,6 @@ import { ErrorText } from 'components/text'
 import useStore from 'store'
 import { signUpUser, loadAccessToken } from 'services/auth'
 
-import type { NativeStackScreenProps } from '@react-navigation/native-stack'
-import type { RootStackParamList } from 'navigation/types'
 import type { SignUpErrors } from 'rest-client/auth/types'
 import type { SignUpInputs } from './types'
 
@@ -27,7 +25,7 @@ const SignUpValidationSchema = Yup.object().shape({
   password_confirmation: Yup.string().required('Required Field').oneOf([Yup.ref('password')], 'Passwords must match')
 })
 
-function SignUp({ navigation }: NativeStackScreenProps<RootStackParamList, 'SignUp'>) {
+function SignUp() {
   const [serverErrors, setServerErrors] = useState<SignUpErrors['errors'] | undefined>(undefined)
   const client = useApolloClient()
   const { addProcess, removeProcess, updateCurrentUser } = useStore()
@@ -46,7 +44,6 @@ function SignUp({ navigation }: NativeStackScreenProps<RootStackParamList, 'Sign
 
     updateCurrentUser(result, accessToken)
     client.resetStore()
-    navigation.navigate('Home')
     removeProcess('signup')
   }
 

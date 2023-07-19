@@ -16,8 +16,6 @@ import useStore from 'store'
 import invariant from 'tiny-invariant'
 import { useApolloClient } from '@apollo/client'
 
-import type { NativeStackScreenProps } from '@react-navigation/native-stack'
-import type { RootStackParamList } from 'navigation/types'
 import type { LoginInputs } from './types'
  
 const LoginValidationSchema = Yup.object().shape({
@@ -25,7 +23,7 @@ const LoginValidationSchema = Yup.object().shape({
   password: Yup.string().required('Required Field')
 })
 
-function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login'>) {
+function Login() {
   const [serverError, setServerError] = useState<string | undefined>(undefined)
   const { updateCurrentUser, addProcess, removeProcess } = useStore()
   const client = useApolloClient()
@@ -44,7 +42,6 @@ function Login({ navigation }: NativeStackScreenProps<RootStackParamList, 'Login
 
     updateCurrentUser(result, accessToken)
     client.resetStore()
-    navigation.navigate('Home')
     removeProcess('login')
   }
 
