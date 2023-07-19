@@ -1,39 +1,16 @@
-import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
-import { ROADIFY_API_URL } from 'react-native-dotenv'
-import * as Auth from 'services/auth'
 import MainNavigation from 'navigation/main-navigation'
 import FontsLoader from 'components/fonts-loader'
 import AuthLoader from 'components/auth-loader'
-
-const httpLink = createHttpLink({
-  uri: `${ROADIFY_API_URL}/graphql`,
-})
-
-const authLink = setContext(async (_, { headers }) => {
-  const token = await Auth.loadAccessToken()
-
-  return {
-    headers: {
-      ...headers,
-      'Authorization': token ? `Bearer ${token}` : '',
-    }
-  }
-})
-
-const apolloClient = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-})
+import ApolloLoader from 'components/apollo-loader'
 
 export default function App() {
   return (
-    <ApolloProvider client={apolloClient}>
+    <ApolloLoader>
       <AuthLoader>
         <FontsLoader>
           <MainNavigation />
         </FontsLoader>
       </AuthLoader>
-    </ApolloProvider>
+    </ApolloLoader>
   )
 }
