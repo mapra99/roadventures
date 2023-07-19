@@ -8,10 +8,12 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :trip, Types::Trip, null: false do
-      argument :id, ID, required: true
+      argument :id, Int, required: true
     end
 
     field :trips, [Types::Trip], null: false
+
+    field :current_user, Types::User, null: true
 
     def trips
       context[:current_user].trips
@@ -19,6 +21,10 @@ module Types
 
     def trip(id:)
       context[:current_user].trips.find(id)
+    end
+
+    def current_user
+      context[:current_user]
     end
   end
 end
