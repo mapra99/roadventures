@@ -6,7 +6,7 @@ import { removeAccessToken } from 'services/auth'
 
 function Home() {
   useEffect(() => {
-    removeAccessToken()
+    removeAccessToken() // TODO: this is just for testing purposes
   }, [])
 
   return (

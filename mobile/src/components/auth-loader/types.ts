@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
 
-export interface GlobalLoaderProps {
+export interface AuthLoaderProps {
   children: ReactNode
 }

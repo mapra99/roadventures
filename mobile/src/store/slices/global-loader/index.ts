@@ -3,7 +3,8 @@ import type { Store } from '../../types'
 import type { ActiveProcess, GlobalLoaderSlice } from './types'
 
 const INITIAL_PROCESSES: ActiveProcess[] = [
-  'current-user'
+  'current-user',
+  'fonts-loader'
 ]
 
 const createGlobalLoaderSlice: StateCreator<Store, [], [], GlobalLoaderSlice> = (set) => ({

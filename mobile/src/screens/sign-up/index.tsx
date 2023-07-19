@@ -76,7 +76,7 @@ function SignUp() {
                   editable
                 />
                 { errors.email && <ErrorText>{ errors.email }</ErrorText> }
-                { serverErrors?.email && <ErrorText>{ serverErrors?.email }</ErrorText> }
+                { serverErrors?.email && <ErrorText>Email { serverErrors?.email }</ErrorText> }
               </InputGroup>
 
               <InputGroup>
@@ -92,7 +92,7 @@ function SignUp() {
                   editable
                 />
                 { errors.password && <ErrorText>{ errors.password }</ErrorText> }
-                { serverErrors?.password && <ErrorText>{ serverErrors?.password }</ErrorText> }
+                { serverErrors?.password && <ErrorText>Password { serverErrors?.password }</ErrorText> }
               </InputGroup>
 
               <InputGroup>
@@ -108,7 +108,7 @@ function SignUp() {
                   editable
                 />
                 { errors.password_confirmation && <ErrorText>{ errors.password_confirmation }</ErrorText> }
-                { serverErrors?.password_confirmation && <ErrorText>{ serverErrors?.password_confirmation }</ErrorText> }
+                { serverErrors?.password_confirmation && <ErrorText>Password Confirmation { serverErrors?.password_confirmation }</ErrorText> }
               </InputGroup>
 
               <Button

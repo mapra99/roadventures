@@ -4,7 +4,7 @@ import { ROADIFY_API_URL } from 'react-native-dotenv'
 import * as Auth from 'services/auth'
 import MainNavigation from 'navigation/main-navigation'
 import FontsLoader from 'components/fonts-loader'
-import GlobalLoader from 'components/global-loader'
+import AuthLoader from 'components/auth-loader'
 
 const httpLink = createHttpLink({
   uri: `${ROADIFY_API_URL}/graphql`,
@@ -29,11 +29,11 @@ const apolloClient = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={apolloClient}>
-      <GlobalLoader>
+      <AuthLoader>
         <FontsLoader>
           <MainNavigation />
         </FontsLoader>
-      </GlobalLoader>
+      </AuthLoader>
     </ApolloProvider>
   )
 }

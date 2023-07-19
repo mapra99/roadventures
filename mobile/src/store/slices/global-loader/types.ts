@@ -1,4 +1,4 @@
-export type ActiveProcess = 'login' | 'signup' | 'logout' | 'current-user'
+export type ActiveProcess = 'login' | 'signup' | 'logout' | 'current-user' | 'fonts-loader'
 
 export interface GlobalLoaderSlice {
   activeProcesses: ActiveProcess[]
