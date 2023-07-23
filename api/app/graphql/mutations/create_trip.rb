@@ -8,6 +8,9 @@ module Mutations
     def resolve(status:)
       trip = context[:current_user].trips.build(status:)
 
+      trip.started_at = Time.zone.now if status == Trip::STARTED.to_s
+      trip.finished_at = Time.zone.now if status == Trip::FINISHED.to_s
+
       if trip.save
         { trip:, errors: [] }
       else

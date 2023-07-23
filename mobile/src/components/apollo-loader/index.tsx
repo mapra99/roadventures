@@ -3,6 +3,8 @@ import { setContext } from '@apollo/client/link/context'
 import { ROADIFY_API_URL } from 'react-native-dotenv'
 import { loadAccessToken } from 'services/auth'
 
+console.debug({ ROADIFY_API_URL })
+
 import type { ApolloLoaderProps } from './types'
 
 const httpLink = createHttpLink({
@@ -11,6 +13,8 @@ const httpLink = createHttpLink({
 
 const authLink = setContext(async (_, { headers }) => {
   const token = await loadAccessToken()
+
+  console.debug({ userToken: token })
 
   return {
     headers: {

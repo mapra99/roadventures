@@ -6,7 +6,7 @@ module Mutations
     field :errors, [String], null: false
 
     def resolve(trip:)
-      return { trip:, errors: [] } if trip.update(status: ::Trip::FINISHED)
+      return { trip:, errors: [] } if trip.update(status: ::Trip::FINISHED, finished_at: Time.zone.now)
 
       { errors: trip.errors.full_messages }
     end

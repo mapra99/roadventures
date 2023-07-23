@@ -1,17 +1,13 @@
-import { useEffect } from 'react'
 import Layout from 'components/layout'
-import { BodyText } from 'components/text'
-
-import { removeAccessToken } from 'services/auth'
+import ActiveTrips from 'components/active-trips'
+import { BodyWithPadding } from 'components/body'
 
 function Home() {
-  useEffect(() => {
-    removeAccessToken() // TODO: this is just for testing purposes
-  }, [])
-
   return (
     <Layout>
-      <BodyText>HOLI USUARIO</BodyText>
+      <BodyWithPadding>
+        <ActiveTrips />
+      </BodyWithPadding>
     </Layout>
   )
 }

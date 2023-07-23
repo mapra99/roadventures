@@ -11,12 +11,17 @@ module Types
       argument :id, Int, required: true
     end
 
-    field :trips, [Types::Trip], null: false
+    field :trips, [Types::Trip], null: false do
+      argument :status, Types::TripStatus, required: false
+    end
 
     field :current_user, Types::User, null: true
 
-    def trips
-      context[:current_user].trips
+    def trips(status: nil)
+      trips = context[:current_user].trips
+      trips = trips.where(status:) if status.present?
+
+      trips
     end
 
     def trip(id:)

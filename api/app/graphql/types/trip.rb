@@ -6,5 +6,7 @@ module Types
     field :user, Types::User, null: false
     field :tracking_locations, [Types::TrackingLocation], null: false
     field :status, Types::TripStatus, null: false
+    field :started_at, GraphQL::Types::ISO8601DateTime, null: true
+    field :finished_at, GraphQL::Types::ISO8601DateTime, null: true
   end
 end

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { ROADIFY_API_URL } from 'react-native-dotenv'
 
+console.debug({ ROADIFY_API_URL })
+
 const client = axios.create({
   baseURL: ROADIFY_API_URL,
   timeout: 5000,

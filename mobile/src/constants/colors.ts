@@ -3,5 +3,6 @@ export default {
   SECONDARY: '#EDDFEF',
   TERTIARY: '#489FB5',
   SUCCESS: '#BAD4AA',
-  DANGER: '#F24A60'
+  DANGER: '#F24A60',
+  WHITE: '#FFFFFF'
 }

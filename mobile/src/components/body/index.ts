@@ -13,4 +13,8 @@ export const BodyCenteredContent = styled(FlexCenterView)`
   margin: 0 16px;
 `
 
+export const BodyWithPadding = styled(Body)`
+  padding: 16px;
+`
+
 export default Body
