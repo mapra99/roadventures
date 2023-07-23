@@ -17,4 +17,8 @@ export const BodyWithPadding = styled(Body)`
   padding: 16px;
 `
 
+export const FullHeightScrollableBody = styled.ScrollView`
+  min-height: 100%;
+`
+
 export default Body

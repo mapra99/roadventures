@@ -1,13 +1,15 @@
 import Layout from 'components/layout'
 import ActiveTrips from 'components/active-trips'
-import { BodyWithPadding } from 'components/body'
+import { FullHeightScrollableBody, BodyWithPadding } from 'components/body'
 
 function Home() {
   return (
     <Layout>
-      <BodyWithPadding>
-        <ActiveTrips />
-      </BodyWithPadding>
+      <FullHeightScrollableBody>
+        <BodyWithPadding>
+          <ActiveTrips />
+        </BodyWithPadding>
+      </FullHeightScrollableBody>
     </Layout>
   )
 }
