@@ -16,6 +16,7 @@ jobs:
           workdir: api
           rubocop_version: gemfile
           rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
+          use_bundler: true
 
   mobile:
     runs-on: ubuntu-latest
